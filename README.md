@@ -2,9 +2,9 @@
 The basic idea here is to utilize TX2's USB Ethernet device mode, connect SFP with USB cable and transfer ROS package directly. Can achieve low latency and wide bandwidth relative to Wifi.
 
 ## Hardware Requirements
-Snapdragon Flight Pro
-TX2 with Orbitty Carrier
-USB OTG cable + USB micro cable (or USB micro to micro OTG cable)
+- Snapdragon Flight Pro
+- TX2 with Orbitty Carrier
+- USB OTG cable + USB micro cable (or USB micro to micro OTG cable)
 
 ## USB Connection Setup
 TX2's operating system has presetted USB device function, can work as serial device or USB Softether for PC to connect. Here we need to use an USB OTG cable from SFP (as USB host) to connect TX2 (as USB device). Use `lsusb` on SPF's shell to check if the USB connection is established:
