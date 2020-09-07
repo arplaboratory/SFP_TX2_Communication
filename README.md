@@ -63,3 +63,42 @@ Use `rqt` tool to view the image stream, delay is very small!
 ![result2](./pic/Screenshot2.png)
 The USB physical connection show as below:
 ![con1](./pic/Connection.jpg)
+
+## UDP Socket
+### Communication Protocol
+For the maximum length of UDP package is 65535 bytes, which is smaller than one frame of camera data. So we need to divide one frame data into small UDP packages. In this case, we design the communication protocol for a data frame as:
+
+    Server:
+        send:   length of package
+    Client:
+        receive
+        send:   ack
+    Server:
+        receive
+        loop:
+            send:   divided packages
+
+### Solution for bandwidth and stability issue
+- Increase UDP Message Length
+- Avoid client ack when receiving divided packages
+- Increase UDP receive buffer for TX2
+  - Add the following lines to /etc/sysctl.conf
+    ```
+    net.core.rmem_default = 1048576
+    net.core.rmem_max = 16777216
+    ```
+  - Reload system setting:
+    ```
+    sysctl -p
+    ```
+
+### Run Sockets
+First, on SFP launch the camera nodes and setup ROS ip on both SFP and TX2. Then at a new terminal on SFP run:
+```
+rosrun udp_com udp_server_sender.py
+```
+On TX2's terminal:
+```
+rosrun udp_com udp_client_receiver.py
+```
+Now on TX2 we can subscribe the camera data from topic `/cli_out`.
