@@ -57,9 +57,9 @@ export ROS_MASTER_URI=http://192.168.55.2:11311
 ```
 to let ROS konw where the ROS master is. The ip address is the same with what we have set up in SFP.
 Then use `rostopic` we can see the nodes on SFP's ROS:
-![result1](./Screenshot1.png)
+![result1](./pic/Screenshot1.png)
 We can see that the image data is received without frame lost.
 Use `rqt` tool to view the image stream, delay is very small!
-![result2](./Screenshot2.png)
+![result2](./pic/Screenshot2.png)
 The USB physical connection show as below:
-![con1](./Connection.jpg)
+![con1](./pic/Connection.jpg)
