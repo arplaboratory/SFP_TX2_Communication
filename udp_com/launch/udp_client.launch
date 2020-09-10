@@ -1,0 +1,8 @@
+<launch>
+
+    <node name="udp_client" pkg="udp_com" type="udp_client_receiver.py" output="screen">
+        <remap from="cli_in" to="udp_client_input"/>
+        <remap from="cli_out" to="udp_client_output"/>
+    </node>
+
+</launch>

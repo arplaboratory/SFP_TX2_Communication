@@ -1,0 +1,8 @@
+<launch>
+
+    <node name="udp_server" pkg="udp_com" type="udp_server_sender.py" output="screen">
+        <remap from="serv_in" to="hires/image_raw"/>
+        <remap from="serv_out" to="udp_server_output"/>
+    </node>
+
+</launch>

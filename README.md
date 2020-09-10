@@ -95,10 +95,10 @@ For the maximum length of UDP package is 65535 bytes, which is smaller than one 
 ### Run Sockets
 First, on SFP launch the camera nodes and setup ROS ip on both SFP and TX2. Then at a new terminal on SFP run:
 ```
-rosrun udp_com udp_server_sender.py
+roslaunch udp_com udp_server.launch
 ```
 On TX2's terminal:
 ```
-rosrun udp_com udp_client_receiver.py
+roslaunch udp_com udp_client.launch
 ```
-Now on TX2 we can subscribe the camera data from topic `/cli_out`.
+Now on TX2 we can subscribe the camera data from topic `/client_output`.
