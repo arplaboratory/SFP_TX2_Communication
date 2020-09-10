@@ -80,7 +80,7 @@ while not rospy.is_shutdown():
         #print('   rev num:%d'%i)
 
     # trans to ros msg
-    msg_ros = msg_json.decode()
+    msg_json = msg_json.decode()
     msg_ros = json_message_converter.convert_json_to_ros_message('std_msgs/Float32', msg_json)
     pub.publish(msg_ros)
     #rospy.loginfo(' done.')
